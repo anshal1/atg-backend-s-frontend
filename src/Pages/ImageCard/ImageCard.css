@@ -1,0 +1,264 @@
+@media only screen and (max-width: 700px) {
+  .main_image_container {
+    width: 100%;
+    height: 30rem;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    transition: all 0.2s;
+    /* justify-content: center; */
+  }
+  .main_image_container_hide {
+    width: 100%;
+    height: 30rem;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  .image_container {
+    position: relative;
+  }
+  .imageInfo {
+    transition: all 0.3s;
+    display: none;
+    color: white;
+    padding: 10px;
+  }
+  .imageInfo p, h3{
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .image_container img {
+    display: block;
+    width: 100%;
+    height: 25rem;
+    position: relative;
+    object-fit: cover;
+  }
+  .image_container:hover .imageInfo {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 25rem;
+    top: 0px;
+    background-color: rgba(0, 0, 26, 0.4);
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+  .image_container i {
+    color: red;
+    font-size: 1.1rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .options {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: hsl(5, 85%, 63%);
+  }
+  .options p {
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0px;
+  }
+}
+.fa-heart{
+  color: hsl(5, 95%, 53%);
+}
+.fa-comment{
+  color: white;
+}
+.fa-trash{
+  color: red;
+}
+@media only screen and (min-width: 700px) {
+  .main_image_container {
+    width: 35rem;
+    height: 30rem;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid rgba(151, 151, 151, 0.4);
+    opacity: 1;
+    position: relative;
+    transition: all 0.2s;
+    border-radius: 8px;
+  }
+  .comment_box_hide{
+    transform: scale(0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    pointer-events: none;
+    transition: all 200ms;
+  }
+  .comment_box_show{
+    width: 100%;
+    height: 83%;
+    transform: scale(1);
+    position: absolute;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: all;
+    transition: all 200ms;
+  }
+  #comment{
+    border: none;  
+    resize: none;
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .heading:has(p){
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: first baseline;
+  }
+  .heading p{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    text-align: start;
+  }
+  .comment_buttons{
+    width: 100%;
+    height: 3rem;
+    margin-top: 1.5rem;
+  }
+  .comment_buttons > button{
+    width: fit-content;
+    height: 2.3rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    color: white;
+    background-color: hsl(5, 85%, 63%);
+    cursor: pointer;
+    transition: all 100ms;
+  }
+  .main_image_container_hide {
+    width: 35rem;
+    height: 30rem;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    border: 2px solid rgba(151, 151, 151, 0.4);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  .image_container {
+    position: relative;
+    overflow: hidden;
+  }
+  .imageInfo {
+    transition: all 0.3s;
+    display: none;
+    color: white;
+    padding: 10px;
+  }
+  .imageInfo p, h3{
+    font-weight: 500;
+    text-transform: uppercase;
+    word-spacing: .3rem;
+  }
+  .image_container img {
+    display: block;
+    width: 100%;
+    height: 25rem;
+    position: relative;
+  }
+  .image_container:hover .imageInfo {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 25rem;
+    top: 0px;
+    background-color: rgba(0, 0, 26, 0.4);
+    font-family: "IBM Plex Sans", sans-serif;
+    cursor: default;
+  }
+  .image_container i {
+    color: red;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .options {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: 500;
+    background-color: rgba(241, 94, 80, .4);
+  }
+  .options p {
+    cursor: pointer;
+    margin: 0px;
+    font-size: 1.5rem;
+  }
+  .unliked{
+    color: hsl(236, 13%, 42%);
+  }
+  .liked{
+    color: rgba(241, 94, 80, 1);
+  }
+}
+@media only screen and (max-width: 524px) {
+  .main_image_container {
+    width: 100%;
+    height: 44vh;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    border: 2px solid rgba(151, 151, 151, 0.4);
+    margin: 10px;
+  }
+  .image_container img {
+    display: block;
+    width: 100%;
+    height: 35vh;
+    position: relative;
+  }
+  .options {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: hsl(5, 85%, 63%);
+  }
+}
