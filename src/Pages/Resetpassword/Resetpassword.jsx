@@ -16,7 +16,7 @@ const Resetpassword = () => {
   const SetPass = (e) => {
     setpassword({ ...password, [e.target.name]: e.target.value });
   };
-  const ChangePass = async () => {
+  const ChangePass = async (e) => {
     if (!password.password || !password.confirm_pass) {
       return setalert({
         display: "display",
@@ -33,6 +33,7 @@ const Resetpassword = () => {
         msg: "Password must be greater than 8 characters",
       });
     } else {
+      e.target.textContent = "Changing Password"
       let url = `${URL}${location.pathname}`;
       let data = await fetch(url, {
         method: "POST",
@@ -48,6 +49,7 @@ const Resetpassword = () => {
           display: "display",
           msg: res.msg,
         });
+        e.target.textContent = "Password Changed"
       } else if (res.error) {
         setalert({
           display: "display",
