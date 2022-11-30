@@ -9,7 +9,7 @@ import Loader from "../Loader/Loader";
 import URL from "../URL";
 const ImageHolder = () => {
   const c = useContext(Context);
-  const { token_cookie, setalert, User, page } = c;
+  const { token_cookie, setalert, User, page, setpage } = c;
   const [nextpage, setnextPage] = useState(false);
   const [Image, setImage] = useState([]);
   const [comment, setcomment] = useState("");
@@ -17,7 +17,7 @@ const ImageHolder = () => {
   const [infinte_post_loader, setinfinite_post_loader] = useState(false);
   const Allimage = async () => {
     setinfinite_post_loader(true);
-    let url = `${URL}/all/post?limit=6&page=${page}`;
+    let url = `${URL}/all/post?limit=6&page=1`;
     let data = await fetch(url, {
       method: "POST",
       headers: {
@@ -180,15 +180,16 @@ const ImageHolder = () => {
   const comment_value = (e) => {
     setcomment(e.target.value);
   };
-  useEffect(() => {
+  useEffect( () => {
+    setpage(1);
     Allimage();
-    // eslint-disable-next-line 
-  }, []);
+    // eslint-disable-next-line
+  }, [token_cookie]);
   useEffect(() => {
     if (nextpage) {
       Allimage_infinte();
     }
-     // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [page]);
   return (
     <>

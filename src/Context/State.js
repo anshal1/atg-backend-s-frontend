@@ -39,9 +39,9 @@ const State = (props) => {
       user();
     }
      // eslint-disable-next-line 
-  }, [token_cookie]);
+  }, [document.cookie, token_cookie]);
   return (
-    <Context.Provider value={{ token_cookie, settoken_cookie, alert, setalert, User, page, setpage }}>
+    <Context.Provider value={{ token_cookie, settoken_cookie, alert, setalert, User, page, setpage, user }}>
       {props.children}
     </Context.Provider>
   )
