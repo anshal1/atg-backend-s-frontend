@@ -27,7 +27,15 @@ const Navbar = () => {
           >
             Upload &#10010;
           </p>
-          {token_cookie !== "null" || token_cookie  ? (
+          {token_cookie === "null" || !token_cookie ? (
+            <button
+              onClick={() => {
+                navi("/login");
+              }}
+            >
+              Login
+            </button>
+          ) : (
             <button
               onClick={() => {
                 const logout = (document.cookie = `token=${null}`);
@@ -35,14 +43,6 @@ const Navbar = () => {
               }}
             >
               Logout
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                navi("/login");
-              }}
-            >
-              Login
             </button>
           )}
         </div>

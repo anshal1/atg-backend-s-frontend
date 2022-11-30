@@ -27,7 +27,7 @@ const ImageHolder = () => {
     let res = await data.json();
     if (res.post) {
       setinfinite_post_loader(false);
-      setImage(Image.concat(res.post));
+      setImage(res.post);
       setloading(false);
       setnextPage(res.isNextPage);
     } else if (res.error) {
