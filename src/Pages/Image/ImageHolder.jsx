@@ -39,6 +39,30 @@ const ImageHolder = () => {
       setloading(false);
     }
   };
+  const Allimage_infinte = async () => {
+    setinfinite_post_loader(true);
+    let url = `${URL}/all/post?limit=6&page=${page}`;
+    let data = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    let res = await data.json();
+    if (res.post) {
+      setinfinite_post_loader(false);
+      setImage(Image.concat(res.post));
+      setloading(false);
+      setnextPage(res.isNextPage);
+    } else if (res.error) {
+      setalert({
+        display: "display",
+        msg: res.error,
+      });
+      setinfinite_post_loader(false);
+      setloading(false);
+    }
+  };
   const Like = async (img) => {
     if (token_cookie === "null") {
       setalert({
@@ -158,11 +182,11 @@ const ImageHolder = () => {
   };
   useEffect(() => {
     Allimage();
-     // eslint-disable-next-line 
+    // eslint-disable-next-line 
   }, []);
   useEffect(() => {
     if (nextpage) {
-      Allimage();
+      Allimage_infinte();
     }
      // eslint-disable-next-line 
   }, [page]);

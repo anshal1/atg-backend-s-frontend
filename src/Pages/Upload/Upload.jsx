@@ -8,7 +8,7 @@ import Context from "../../Context/Context";
 import URL from "../URL";
 const Upload = () => {
   const c = useContext(Context);
-  const { setalert, token_cookie } = c;
+  const { setalert, token_cookie, setpage } = c;
   const navi = useNavigate()
   // For compressing image
   const options = {
@@ -92,7 +92,8 @@ const Upload = () => {
           event.target.textContent = "Uploaded";
           setTimeout(()=>{
             navi("/");
-          }, 300)
+          }, 300);
+          setpage(1);
         }
       });
       req.open("POST", url);

@@ -6,7 +6,7 @@ import "./navbar.css";
 const Navbar = () => {
   const navi = useNavigate();
   const c = useContext(Context);
-  const { token_cookie, settoken_cookie } = c;
+  const { settoken_cookie, User } = c;
   return (
     <>
       <div className="main_navbar_container">
@@ -27,7 +27,7 @@ const Navbar = () => {
           >
             Upload &#10010;
           </p>
-          {token_cookie !== "null" ? (
+          {User?.username ? (
             <button onClick={()=>{
               const logout = document.cookie = `token=${null}`
               settoken_cookie(logout);

@@ -15,7 +15,7 @@ const ImageCard = (props) => {
         ele.forEach((e) => {
           if (e.isIntersecting) {
             setpage(page + 1);
-            obs.disconnect(e);
+            obs.unobserve(e.target);
           }
         });
       },
