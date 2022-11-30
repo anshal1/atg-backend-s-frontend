@@ -2,11 +2,13 @@ import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import "../Forgotpass/ForgotPass.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Context from "../../Context/Context";
 import URL from "../URL";
+import { useEffect } from "react";
 const Resetpassword = () => {
   const location = useLocation();
+  const navi = useNavigate()
   const c = useContext(Context);
   const { setalert } = c;
   const [password, setpassword] = useState({
@@ -16,6 +18,9 @@ const Resetpassword = () => {
   const SetPass = (e) => {
     setpassword({ ...password, [e.target.name]: e.target.value });
   };
+  useEffect(()=>{
+    document.cookie = `token=${null}`;
+  }, [])
   const ChangePass = async (e) => {
     if (!password.password || !password.confirm_pass) {
       return setalert({
@@ -49,6 +54,7 @@ const Resetpassword = () => {
           display: "display",
           msg: res.msg,
         });
+        navi("/login");
         e.target.textContent = "Password Changed"
       } else if (res.error) {
         setalert({
