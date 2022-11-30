@@ -27,7 +27,7 @@ const Navbar = () => {
           >
             Upload &#10010;
           </p>
-          {token_cookie !== "null"  ? (
+          {token_cookie !== "null" || !token_cookie  ? (
             <button
               onClick={() => {
                 const logout = (document.cookie = `token=${null}`);
